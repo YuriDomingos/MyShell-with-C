@@ -6,6 +6,7 @@ Objectivo : Implementar o projecto de S.O 2
 
 
 #include<stdio.h>
+#include<stdlib.h>
 #include<string.h>
 #include<unistd.h>
 #define TAMANHO_COMANDO 100
@@ -67,7 +68,8 @@ void apagar_informacoes_do_comando_history(char comando_introduzido[])
          char *caminho_do_comando_rm  = "bin/rm";
          char *comando = "rm";
          char *caminho_do_ficheiro_historico = "/home/yuri/.bash_history";
-         execlp(caminho_do_comando_rm,comando, caminho_do_ficheiro_historico);
+         execlp(caminho_do_comando_rm,comando, caminho_do_ficheiro_historico,NULL);
+
 
     }
     else
@@ -76,6 +78,9 @@ void apagar_informacoes_do_comando_history(char comando_introduzido[])
     }
     
 }
+
+
+
 
 
 int main (void )
@@ -92,6 +97,7 @@ int main (void )
        espaco();
        verificar_comando_history(comandos);
        apagar_informacoes_do_comando_history(comandos);
+       system("cls");
     }
   
    
